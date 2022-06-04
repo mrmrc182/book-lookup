@@ -5,8 +5,8 @@ type Query {
     me:  [User]
 }
 type Mutation {
-    login(email, password):  Auth
-    addUser(username, email, password):  Auth
+    login(email: String!, password: String!):  Auth
+    addUser(username: String!, email: String!, password: String!):  Auth
     saveBook(authors, description, title, ):
     removeBook:
 }
@@ -15,18 +15,26 @@ type User{
     username: String
     email: String
     bookCount: Int
-    savedBooks: {Book}
+    savedBooks: [Book]
 }
 type Book {
     bookId: Int
-    authors: {String}
+    authors: [String]
     description: String
     title: String
     image: IMAGE
     link: String
 }
+input savedBook {
+    description: String
+    title: String
+    bookId: String
+    image: String
+    link: String
+    authors: [String]
+}
 type Auth {
-    token:
-    user: [User]
+    token: ID!
+    user: User
 }
 `
