@@ -24,7 +24,7 @@ const resolvers = {
                 console.log(error);
             }
         },
-        login: async (parent, {email, password}) => {
+        loginUser: async (parent, {email, password}) => {
             const user = await User.findOne({email})
             const password = await user.isCorrectPassword(password)
             if (!user || !password) {

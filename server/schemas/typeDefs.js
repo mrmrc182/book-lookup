@@ -22,7 +22,7 @@ type Book {
     authors: [String]
     description: String
     title: String
-    image: IMAGE
+    image: String
     link: String
 }
 input savedBook {
@@ -38,3 +38,4 @@ type Auth {
     user: User
 }
 `
+module.exports=typeDefs;
